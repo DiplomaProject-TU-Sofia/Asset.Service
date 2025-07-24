@@ -4,8 +4,8 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["Assets.Service/Assets.Service/Assets.Service.csproj", "Assets.Service/Assets.Service/"]
-RUN dotnet restore "Assets.Service/Assets.Service/Assets.Service.csproj"
+COPY ["Assets.Service/Assets.Service.csproj", "Assets.Service/"]
+RUN dotnet restore "Assets.Service/Assets.Service.csproj"
 COPY . .
 WORKDIR "/src/Assets.Service"
 RUN dotnet build "Assets.Service.csproj" -c Release -o /app/build
